@@ -10,6 +10,15 @@ export default {
         grey: 'hsl(231, 7%, 60%)',
         white: 'hsl(0, 0%, 100%)',
       },
+      backgroundImage: {
+        signup_desktop:
+          "url('../src/assets/images/illustration-sign-up-desktop.svg')",
+        signup_mobile:
+          "url('../src/assets/images/illustration-sign-up-mobile.svg')",
+      },
+      listStyleImage: {
+        'icon-success': "url('../src/assets/images/icon-list.svg')",
+      },
     },
   },
   plugins: [],
