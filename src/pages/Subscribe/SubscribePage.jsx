@@ -4,7 +4,9 @@ function SubscribePage() {
   return (
     <>
       <h1>Hello world</h1>
-      <Link to="/success">success</Link>
+      <Link to="/success" state={{ email: 'a@a.com' }}>
+        success
+      </Link>
     </>
   );
 }

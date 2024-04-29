@@ -1,5 +1,13 @@
+import { useHistoryState } from 'wouter/use-browser-location';
+
 function SuccessPage() {
-  return <div>SuccessPage</div>;
+  const state = useHistoryState();
+  return (
+    <>
+      <div>SuccessPage</div>
+      {state.email && <p>{state.email}</p>}
+    </>
+  );
 }
 
 export default SuccessPage;
