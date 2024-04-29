@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    font-style:
+      'Roboto',
+      system-ui,
+      -apple-system,
+      sans-serif;
+  }
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-weight: normal;
+  src: url('./assets/fonts/Roboto-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-weight: bold;
+  src: url('./assets/fonts/Roboto-Bold.ttf');
+}
