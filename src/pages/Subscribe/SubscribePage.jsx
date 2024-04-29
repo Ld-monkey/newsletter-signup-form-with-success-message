@@ -1,5 +1,12 @@
+import { Link } from 'wouter';
+
 function SubscribePage() {
-  return <div>SubscribePage</div>;
+  return (
+    <>
+      <h1>Hello world</h1>
+      <Link to="/success">success</Link>
+    </>
+  );
 }
 
 export default SubscribePage;
