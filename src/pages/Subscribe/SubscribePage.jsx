@@ -1,17 +1,46 @@
 import { useState } from 'react';
-import { useLocation } from 'wouter';
+import { useNavigate } from 'react-router-dom';
 import Button from '../../components/Button/Button';
 
 function SubscribePage() {
   const [email, setEmail] = useState('');
-  const [location, setLocation] = useLocation();
 
-  function handleToggleEmail(str) {
-    setEmail(str);
+  /* Navigate hook from react router dom*/
+  const navigate = useNavigate();
+
+  const [valideEmail, setValideEmail] = useState(false);
+  const [showError, setShowError] = useState(false);
+
+  function validateEmail(email) {
+    if (!email) return false;
+    const re =
+      /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    return re.test(email);
   }
 
-  function handleLocation() {
-    setLocation('/success', { state: { email: email } });
+  function handleEmail(emailValue) {
+    if (emailValue.length >= 0) {
+      setValideEmail(false);
+      setShowError(false);
+    }
+    setEmail(emailValue);
+  }
+
+  function handleButtonValidation() {
+    if (validateEmail(email)) {
+      setValideEmail(true);
+      setShowError(false);
+
+      navigate('/success', { state: { email: email } });
+    } else {
+      setValideEmail(false);
+      setShowError(true);
+    }
+  }
+
+  function handleSubmitForm(e) {
+    e.preventDefault();
+    handleButtonValidation();
   }
 
   return (
@@ -40,22 +69,30 @@ function SubscribePage() {
               </li>
             </ul>
           </div>
-          <form>
-            <label
-              htmlFor="email"
-              className="text-xs font-bold text-dark-slate-grey"
-            >
-              Email address
-            </label>
+          <form onSubmit={(e) => handleSubmitForm(e)}>
+            <div className="flex justify-between">
+              <label
+                htmlFor="email"
+                className="text-xs font-bold text-dark-slate-grey"
+              >
+                Email address
+              </label>
+              {showError && (
+                <span className="text-xs font-bold text-tomato">
+                  Valid email required
+                </span>
+              )}
+            </div>
             <input
               type="email"
               id="email"
               name="email"
-              className="mt-2 w-full rounded-lg border border-grey px-6 py-4"
+              className={`mt-2 w-full rounded-lg border border-grey px-6 py-4  ${showError ? 'invalid:border-tomato invalid:bg-tomato/15 invalid:text-tomato' : ''}`}
               placeholder="email@company.com"
-              onChange={(e) => handleToggleEmail(e.target.value)}
+              onChange={(e) => handleEmail(e.target.value)}
+              required
             />
-            <Button setLocation={() => handleLocation}>
+            <Button setNavigation={() => handleButtonValidation}>
               Subscribe to monthly newsletter
             </Button>
           </form>
