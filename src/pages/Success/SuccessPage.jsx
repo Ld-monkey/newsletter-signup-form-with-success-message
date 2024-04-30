@@ -11,18 +11,18 @@ function SuccessPage() {
   }
 
   return (
-    <main className="h-screen py-9">
-      <section className="m-auto flex h-full w-[90%] max-w-[327px] flex-col">
+    <main className="flex h-screen items-center justify-center bg-dark-slate-grey py-9">
+      <section className="m-auto flex h-full w-[327px] flex-col bg-white sm:h-[520px] sm:w-[504px] sm:rounded-[36px] sm:px-16 sm:py-12">
         <img
           src={IconSuccess}
           alt="The orange icon success"
-          className="mb-10 mt-[113px] size-16"
+          className="mb-10 mt-[113px] size-16 sm:mt-0"
         />
 
-        <h1 className="mb-6 text-[2.5rem] font-bold leading-10 text-dark-slate-grey">
+        <h1 className="mb-6 text-[2.5rem] font-bold leading-10 text-dark-slate-grey sm:text-[3.5rem] sm:leading-[3.5rem]">
           Thanks for subscribing!
         </h1>
-        <p className="flex-1 text-dark-slate-grey">
+        <p className="flex-1 text-dark-slate-grey sm:mb-10 sm:flex-none">
           A confirmation email has been sent to{' '}
           {state && state.email ? (
             <span className="font-bold">{state.email}</span>
