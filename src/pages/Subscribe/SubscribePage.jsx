@@ -3,12 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import Button from '../../components/Button/Button';
 
 function SubscribePage() {
-  const [email, setEmail] = useState('');
-
-  /* Navigate hook from react router dom*/
+  /* Navigate hook from react router dom */
   const navigate = useNavigate();
 
+  /* Email states */
+  const [email, setEmail] = useState('');
   const [valideEmail, setValideEmail] = useState(false);
+
+  /* Error state */
   const [showError, setShowError] = useState(false);
 
   function validateEmail(email) {
@@ -28,11 +30,13 @@ function SubscribePage() {
 
   function handleButtonValidation() {
     if (validateEmail(email)) {
+      console.log('valide email yes');
       setValideEmail(true);
       setShowError(false);
 
       navigate('/success', { state: { email: email } });
     } else {
+      console.log('no valide email');
       setValideEmail(false);
       setShowError(true);
     }
@@ -87,7 +91,7 @@ function SubscribePage() {
               type="email"
               id="email"
               name="email"
-              className={`mt-2 w-full rounded-lg border border-grey px-6 py-4  ${showError ? 'invalid:border-tomato invalid:bg-tomato/15 invalid:text-tomato' : ''}`}
+              className={`mb-6 mt-2 w-full rounded-lg border border-grey px-6 py-4  ${showError ? 'border-tomato bg-tomato/15 text-tomato' : ''}`}
               placeholder="email@company.com"
               onChange={(e) => handleEmail(e.target.value)}
               required
