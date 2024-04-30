@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useLocation } from 'wouter';
+import Button from '../../components/Button/Button';
 
 function SubscribePage() {
   const [email, setEmail] = useState('');
@@ -7,6 +8,10 @@ function SubscribePage() {
 
   function handleToggleEmail(str) {
     setEmail(str);
+  }
+
+  function handleLocation() {
+    setLocation('/success', { state: { email: email } });
   }
 
   return (
@@ -50,15 +55,9 @@ function SubscribePage() {
               placeholder="email@company.com"
               onChange={(e) => handleToggleEmail(e.target.value)}
             />
-            <button
-              type="button"
-              className="mt-6 h-14 w-full rounded-lg bg-dark-slate-grey text-center font-bold text-white"
-              onClick={() =>
-                setLocation('/success', { state: { email: email } })
-              }
-            >
+            <Button setLocation={() => handleLocation}>
               Subscribe to monthly newsletter
-            </button>
+            </Button>
           </form>
         </article>
       </section>

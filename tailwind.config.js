@@ -15,9 +15,13 @@ export default {
           "url('../src/assets/images/illustration-sign-up-desktop.svg')",
         signup_mobile:
           "url('../src/assets/images/illustration-sign-up-mobile.svg')",
+        'gradient-button': 'linear-gradient(204deg, #FF6A3A 0%, #FF527B 100%)',
       },
       listStyleImage: {
         'icon-success': "url('../src/assets/images/icon-list.svg')",
+      },
+      boxShadow: {
+        'orange-btn': '0px 16px 32px 0px rgba(255, 97, 85, 0.50)',
       },
     },
   },
