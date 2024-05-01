@@ -11,8 +11,8 @@ function SuccessPage() {
   }
 
   return (
-    <main className="flex h-screen items-center justify-center bg-dark-slate-grey py-9">
-      <section className="m-auto flex h-full w-[327px] flex-col bg-white sm:h-[520px] sm:w-[504px] sm:rounded-[36px] sm:px-16 sm:py-12">
+    <main className="flex h-screen items-center justify-center bg-dark-slate-grey">
+      <section className="m-auto flex h-full w-[375px] flex-col bg-white px-6 py-9 sm:h-[520px] sm:w-[504px] sm:rounded-[36px] sm:px-16 sm:py-12">
         <img
           src={IconSuccess}
           alt="The orange icon success"

@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import SubscribePage from './pages/Subscribe/SubscribePage';
-import './index.css';
 import SuccessPage from './pages/Success/SuccessPage';
+import './index.css';
 
 const router = createBrowserRouter(
   [
@@ -12,7 +12,7 @@ const router = createBrowserRouter(
       element: <SubscribePage />,
     },
     {
-      path: 'success',
+      path: '/success',
       element: <SuccessPage />,
     },
   ],

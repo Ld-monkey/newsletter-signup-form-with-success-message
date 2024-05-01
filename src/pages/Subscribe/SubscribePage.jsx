@@ -33,7 +33,7 @@ function SubscribePage() {
       setValideEmail(true);
       setShowError(false);
 
-      navigate('/success', { state: { email: email } });
+      navigate('/success', { state: { email } });
     } else {
       setValideEmail(false);
       setShowError(true);
@@ -47,10 +47,10 @@ function SubscribePage() {
 
   return (
     <main className="flex h-screen items-center justify-center bg-dark-slate-grey">
-      <section className="mx-9 flex w-[928px] flex-col bg-white sm:h-[641px] sm:flex-row-reverse sm:justify-between sm:gap-6 sm:rounded-[36px] sm:p-6">
-        <div className="min-h-[284px] w-[400px] bg-signup_mobile bg-cover bg-center bg-no-repeat sm:rounded-2xl sm:bg-slate-900 sm:bg-signup_desktop" />
-        <article className="flex flex-1 flex-col gap-10 px-6 py-10 sm:items-center sm:justify-center sm:px-10">
-          <div className="flex w-[376px] flex-col gap-6">
+      <section className="m-auto flex h-full w-[375px] max-w-full flex-col bg-white sm:h-[641px] sm:w-[928px] sm:max-w-[90vw] sm:flex-row-reverse sm:justify-between sm:gap-6 sm:rounded-[36px] sm:p-6">
+        <div className="min-h-[284px] bg-signup_mobile bg-cover bg-center bg-no-repeat sm:w-[400px] sm:rounded-2xl sm:bg-slate-900 sm:bg-signup_desktop sm:bg-right" />
+        <article className="flex flex-col gap-10 px-6 py-10 sm:w-[456px] sm:items-center sm:justify-center md:px-10">
+          <div className="flex flex-col gap-6">
             <h1 className="text-4xl font-bold text-dark-slate-grey sm:text-[56px]">
               Stay updated!
             </h1>
@@ -73,7 +73,7 @@ function SubscribePage() {
               </li>
             </ul>
           </div>
-          <div className="w-[376px]">
+          <div>
             <form onSubmit={(e) => handleSubmitForm(e)}>
               <div className="flex justify-between">
                 <label
