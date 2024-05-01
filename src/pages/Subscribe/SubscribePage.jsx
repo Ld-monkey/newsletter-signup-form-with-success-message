@@ -49,7 +49,7 @@ function SubscribePage() {
     <main className="flex h-screen items-center justify-center bg-dark-slate-grey">
       <section className="m-auto flex h-full w-[375px] max-w-full flex-col bg-white sm:h-[641px] sm:w-[928px] sm:max-w-[90vw] sm:flex-row-reverse sm:justify-between sm:gap-6 sm:rounded-[36px] sm:p-6">
         <div className="min-h-[284px] bg-signup_mobile bg-cover bg-center bg-no-repeat sm:w-[400px] sm:rounded-2xl sm:bg-slate-900 sm:bg-signup_desktop sm:bg-right" />
-        <article className="flex flex-col gap-10 px-6 py-10 sm:w-[456px] sm:items-center sm:justify-center md:px-10">
+        <div className="flex flex-col gap-10 px-6 py-10 sm:w-[456px] sm:items-center sm:justify-center md:px-10">
           <div className="flex flex-col gap-6">
             <h1 className="text-4xl font-bold text-dark-slate-grey sm:text-[56px]">
               Stay updated!
@@ -73,36 +73,34 @@ function SubscribePage() {
               </li>
             </ul>
           </div>
-          <div>
-            <form onSubmit={(e) => handleSubmitForm(e)}>
-              <div className="flex justify-between">
-                <label
-                  htmlFor="email"
-                  className="text-xs font-bold text-dark-slate-grey"
-                >
-                  Email address
-                </label>
-                {showError && (
-                  <span className="text-xs font-bold text-tomato">
-                    Valid email required
-                  </span>
-                )}
-              </div>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                className={`mb-6 mt-2 w-full rounded-lg border border-grey px-6 py-4  ${showError ? 'border-tomato bg-tomato/15 text-tomato' : ''} text-dark-slate-grey`}
-                placeholder="email@company.com"
-                onChange={(e) => handleEmail(e.target.value)}
-                required
-              />
-              <Button setNavigation={() => handleButtonValidation}>
-                Subscribe to monthly newsletter
-              </Button>
-            </form>
-          </div>
-        </article>
+          <form onSubmit={(e) => handleSubmitForm(e)}>
+            <div className="flex justify-between">
+              <label
+                htmlFor="email"
+                className="text-xs font-bold text-dark-slate-grey"
+              >
+                Email address
+              </label>
+              {showError && (
+                <span className="text-xs font-bold text-tomato">
+                  Valid email required
+                </span>
+              )}
+            </div>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              className={`mb-6 mt-2 w-full rounded-lg border border-grey px-6 py-4  ${showError ? 'border-tomato bg-tomato/15 text-tomato' : ''} text-dark-slate-grey`}
+              placeholder="email@company.com"
+              onChange={(e) => handleEmail(e.target.value)}
+              required
+            />
+            <Button setNavigation={() => handleButtonValidation}>
+              Subscribe to monthly newsletter
+            </Button>
+          </form>
+        </div>
       </section>
     </main>
   );
